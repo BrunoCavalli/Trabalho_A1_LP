@@ -4,6 +4,7 @@ import numpy as np
 def load_datasets():
     df2 = pd.read_csv("./Data/TS_ESCOLA.csv", sep=";", encoding="latin1")
     df3 = pd.read_csv("./Data/TS_ALUNO_34EM.csv", sep=";", encoding="latin1")
+    print(df2.head())
     return df2, df3
 
 def create_dataframes(df2, df3):
@@ -87,5 +88,5 @@ def main():
     print(df_merged.head())
     print(df_merged.info())
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
