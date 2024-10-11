@@ -37,6 +37,8 @@ def hipotese_3_regiao_media_boxplot():
         plt.xlabel("Região da Escola")
         plt.ylabel("Média")
 
+        plt.savefig("./Graphs/boxplot_regia_media")
+
     except KeyError as e:
         print(f"Erro de chave: {e}")
     except Exception as e:
@@ -59,6 +61,8 @@ def hipotese_3_UF_media():
         plt.title('Distribuição da Média por UF')
         plt.xlabel('UF')
         plt.ylabel('Média')
+
+        plt.savefig("./Graphs/boxplot_uf_media")
 
     except KeyError as e:
         print(f"Erro de chave: {e}")
@@ -87,6 +91,8 @@ def hipotese_3_2_regiao_nivel_socio():
         plt.xlabel("Região da Escola")
         plt.ylabel("Nível Socioeconômico")
 
+        plt.savefig("./Graphs/heatmap_regiao_socio")
+
     except KeyError as e:
         print(f"Erro de chave: {e}")
     except Exception as e:
@@ -110,6 +116,8 @@ def hipotese_3_3():
         plt.title('Distribuição da Média por Localizacao')
         plt.xlabel('Localizacao')
         plt.ylabel('Média')
+
+        plt.savefig("./Graphs/boxplot_loc")
 
     except KeyError as e:
         print(f"Erro de chave: {e}")

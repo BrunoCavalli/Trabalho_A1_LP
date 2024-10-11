@@ -49,6 +49,8 @@ def hipotese_4():
         plt.xlabel("Tipo de escola")
         plt.ylabel("Média")
 
+        plt.savefig("./Graphs/boxplot_tipo")
+
     except KeyError as e:
         print(f"Erro de chave: {e}")
     except ValueError as e:

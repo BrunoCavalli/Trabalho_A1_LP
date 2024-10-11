@@ -3,6 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import chi2_contingency
+import os
+
+
+if not os.path.exists("Graphs"):
+    os.makedirs("Graphs")
 
 # Carrega o dataset com tratamento de erros
 try:
@@ -52,6 +57,8 @@ def hipotese_1_reprovacao():
         else:
             print("As variáveis não estão associadas (não se rejeita a hipótese nula).")
 
+        plt.savefig("./Graphs/heatmap_reprovacao")
+
     except KeyError as e:
         print(f"Erro de chave: {e}. Verifique se as colunas estão corretamente nomeadas no dataset.")
     except Exception as e:
@@ -83,6 +90,8 @@ def hipotese_1_abandono():
         plt.title("Heatmap - Associação entre Respostas dos Pais e Taxa de Abandono")
         plt.xlabel("Taxa de Abandono")
         plt.ylabel("Respostas dos Pais")
+
+        plt.savefig("./Graphs/heatmap_abandono")
 
     except KeyError as e:
         print(f"Erro de chave: {e}. Verifique se as colunas estão corretamente nomeadas no dataset.")

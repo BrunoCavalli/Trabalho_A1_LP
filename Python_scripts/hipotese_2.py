@@ -44,6 +44,8 @@ def hipotese_2():
         plt.xlabel("Categorias de Matriculados")
         plt.ylabel("Média")
 
+        plt.savefig("./Graphs/boxplot_matric")
+
     except KeyError as e:
         print(f"Erro de chave: {e}")
     except Exception as e:
@@ -70,6 +72,8 @@ def hipotese_2_2():
         plt.title("Relação entre Taxa de Participação e Média")
         plt.xlabel("Categorias de Taxa de Participação")
         plt.ylabel("Média")
+
+        plt.savefig("./Graphs/boxplot_part")
 
     except KeyError as e:
         print(f"Erro de chave: {e}")
