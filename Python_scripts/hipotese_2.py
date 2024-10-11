@@ -63,4 +63,3 @@ def hipotese_2_2():
 
 
 
-plt.show()

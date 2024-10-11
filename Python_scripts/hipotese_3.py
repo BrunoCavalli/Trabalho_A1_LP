@@ -80,4 +80,3 @@ def hipotese_3_3():
     plt.xlabel('Localizacao')
     plt.ylabel('Média')
 
-plt.show()

@@ -11,6 +11,8 @@ from Python_scripts.hipotese_4 import hipotese_4
 # Carrega o dataset 
 df = pd.read_csv("./Data/data_saeb.csv", low_memory=False)
 
+
+# Carrega as funções que realizam as análises de cada hipótese
 hipotese_1_reprovacao()
 hipotese_1_abondono()
 hipotese_2()

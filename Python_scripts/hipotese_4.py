@@ -35,4 +35,3 @@ def hipotese_4():
     plt.ylabel("Média")
 
 
-plt.show()

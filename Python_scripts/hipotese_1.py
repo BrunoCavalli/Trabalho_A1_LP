@@ -68,4 +68,3 @@ def hipotese_1_abondono():
     plt.ylabel("Respostas dos Pais")
 
 
-plt.show()
