@@ -275,11 +275,11 @@ def hipotese_3_2_regiao_nivel_socio():
     tabela_contingencia = pd.crosstab(df_filtrado["Nivel_Socioeconomico"], df_filtrado["Regiao"])
     print("Tabela de Contingência:\n", tabela_contingencia)
     
-        # Visualizar a tabela de contingência com um heatmap
-        plt.figure()
-        sns.heatmap(tabela_contingencia, annot=True, cmap="Blues", cbar=True)
-        plt.title("Heatmap - Associação entre Nivel Socio Economico e Regiao da Escola")
-        plt.xlabel("Regiao da Escola")
-        plt.ylabel("Nivel Socio Economico")
+    # Visualizar a tabela de contingência com um heatmap
+    plt.figure()
+    sns.heatmap(tabela_contingencia, annot=True, cmap="Blues", cbar=True)
+    plt.title("Heatmap - Associação entre Nivel Socio Economico e Regiao da Escola")
+    plt.xlabel("Regiao da Escola")
+    plt.ylabel("Nivel Socio Economico")
 
 plt.show()

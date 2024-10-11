@@ -45,10 +45,10 @@ def hipotese_1_reprovacao():
 
 def hipotese_1_abondono():
     """
-    Explora a relação entre as respostas dos pais (qualitativa) e a média dos alunos em matematica (Media_MT)
+    Explora a relação entre as respostas dos pais (qualitativa) e a taxa de abondono (qualitativa).
 
     A função filtra as respostas válidas ('A', 'B', 'C'), exibe a contagem dessas categorias e gera um boxplot
-    para visualizar a relação entre essas categorias e a média de LP dos alunos.
+    para visualizar a relação entre essas categorias e a média dos alunos.
     """
     # Filtrando valores inválidos da coluna 'Respostas_Pais'
     categorias_validas = ['A', 'B', 'C']
@@ -61,7 +61,6 @@ def hipotese_1_abondono():
     tabela_contingencia = pd.crosstab(df_filtrado['Respostas_Pais'], df_filtrado['Taxa_Abandono'])
     print("Tabela de Contingência:\n", tabela_contingencia)
 
-    # Gera o heatplot para visualizar a relação entre a variável qualitativa e "Media_MT"
     plt.figure()
     sns.heatmap(tabela_contingencia, annot=True, cmap="Blues", cbar=True)
     plt.title("Heatmap - Associação entre Respostas dos Pais e Taxa de Abandono")
