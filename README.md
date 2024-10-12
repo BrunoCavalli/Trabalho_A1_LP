@@ -3,7 +3,7 @@ Bruno Cavalli, Erik Rolin, Nicholas Farrel
 
 ## About the project and the data
 
-In this work, we perform data analysis and visualization using the Seaborn and Pandas libraries. The data used comes from the SAEB (Basic Education Assessment System), which offers a wide variety of data on students and their schools.
+In this project, we perform data analysis and visualization using the Seaborn and Pandas libraries. The data used comes from the SAEB (Basic Education Assessment System), which offers a wide variety of data on students and their schools.
 
 ## Project structure
 
@@ -34,7 +34,7 @@ This will generate the following visualizations:
 
 1. Heatmap - Association between Parents' Responses and Reproval Rate:
 
-   ![Heatmap - Reproval Rate](graphs/heatmap_reprovacao.png)
+   ![Heatmap - Reproval Rate](Graphs/heatmap_reprovacao.png)
 
 
 2. Heatmap - Association between Parents' Responses and Abandonment Rate:
@@ -71,3 +71,16 @@ This will generate the following visualizations:
 9. Boxplot - Association between the type of school (public or private) and the avarege score:
 
    ![Boxplot - School Type](Graphs/boxplot_tipo.png)
+
+
+## Testing the modules
+
+To test the modules, run:
+````bash
+pytest
+````
+
+If you want to run the test of an individual module, run:
+````bash
+pytest <file-name.py>
+````
