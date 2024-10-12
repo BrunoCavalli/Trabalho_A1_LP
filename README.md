@@ -7,6 +7,27 @@ In this project, we perform data analysis and visualization using the Seaborn an
 
 Since the original dataset was quite large, we have already performed data cleaning and removed the raw file from this repository. However, you can access the original dataset through the [open data portal](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb) provided by the Brazilian government.
 
+### Steps to Download and Prepare the Data
+
+1. **Download the Dataset**:
+   - Visit the [SAEB open data portal](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb) and download the `microdados_saeb_2021.zip` file.
+
+2. **Extract the Files**:
+   - Extract the contents of the zip file to your local machine.
+
+3. **Place the Required Files**:
+   - From the extracted folder, locate the following files:
+     - `TS_ALUNO_34EM.csv`
+     - `TS_ESCOLA.csv`
+   - Move these two files into the `Data` folder in your project directory.
+
+4. **Run the Data Cleaning Script**:
+   - Once the files are in the `Data` folder, run the `Data_cleaning.py` script to clean and preprocess the data.
+
+   ```bash
+   python Data_cleaning.py
+   ````
+
 ## Project structure
 
 The project is organized in the following modules:
