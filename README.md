@@ -55,11 +55,48 @@ This will generate the following visualizations:
 
 5. Boxplot - Association between region of the school and the avarege score:
 
-   1.0 = Sudeste ; 2.0 =; 3.0=; 4.0=; 5.0=
+### Region Legend
+
+- 1 = Norte 
+- 2 = Nordeste 
+- 3 = Sudeste 
+- 4 = Sul
+- 5 = Centro-Oeste
 
    ![Boxplot - School Region](Graphs/boxplot_regia_media.png)
 
 6. Boxplot - Association between the state location of the scool and the avarege score:
+
+### State Code Legend
+
+- 11 = RO (Rondônia)
+- 12 = AC (Acre)
+- 13 = AM (Amazonas)
+- 14 = RR (Roraima)
+- 15 = PA (Pará)
+- 16 = AP (Amapá)
+- 17 = TO (Tocantins)
+- 21 = MA (Maranhão)
+- 22 = PI (Piauí)
+- 23 = CE (Ceará)
+- 24 = RN (Rio Grande do Norte)
+- 25 = PB (Paraíba)
+- 26 = PE (Pernambuco)
+- 27 = AL (Alagoas)
+- 28 = SE (Sergipe)
+- 29 = BA (Bahia)
+- 31 = MG (Minas Gerais)
+- 32 = ES (Espírito Santo)
+- 33 = RJ (Rio de Janeiro)
+- 35 = SP (São Paulo)
+- 41 = PR (Paraná)
+- 42 = SC (Santa Catarina)
+- 43 = RS (Rio Grande do Sul)
+- 50 = MS (Mato Grosso do Sul)
+- 51 = MT (Mato Grosso)
+- 52 = GO (Goiás)
+- 53 = DF (Distrito Federal)
+
 
    ![Boxplot - School State](Graphs/boxplot_uf_media.png)
 
