@@ -127,9 +127,17 @@ This will generate the following visualizations:
 
 8. Boxplot - Association between school localization(Interior or Capital) and avarege score:
 
+   - 1 = Urbana
+   - 2 = Rural
+
    ![Boxplot - School Localization](Graphs/boxplot_loc.png)
 
 9. Boxplot - Association between the type of school (public or private) and the avarege score:
+
+   - A = Only Public School
+   - B = Only Private School
+   - C = Both Private and Public
+
 
    ![Boxplot - School Type](Graphs/boxplot_tipo.png)
 
