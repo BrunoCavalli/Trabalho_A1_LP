@@ -5,11 +5,14 @@ Bruno Cavalli, Erik Rolin, Nicholas Farrel
 
 In this project, we perform data analysis and visualization using the Seaborn and Pandas libraries. The data used comes from the SAEB (Basic Education Assessment System), which offers a wide variety of data on students and their schools.
 
+Since the original dataset was quite large, we have already performed data cleaning and removed the raw file from this repository. However, you can access the original dataset through the [open data portal](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/saeb) provided by the Brazilian government.
+
 ## Project structure
 
 The project is organized in the following modules:
 
 - `Python_scripts`: Contains the Python scripts used to clean the dataset and create the analyses.
+- `Tests`: Contains all the python scripts used to test the modules
 - `Data`: Contains the dataset `.csv` file.
 
 ## Getting started
