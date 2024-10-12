@@ -39,35 +39,35 @@ This will generate the following visualizations:
 
 2. Heatmap - Association between Parents' Responses and Abandonment Rate:
    
-   ![Heatmap - Abandonment Rate](graphs/heatmap_abandono.png)
+   ![Heatmap - Abandonment Rate](Graphs/heatmap_abandono.png)
 
 
 3. Boxplot - Association between number of matriculated students and avarege score:
 
-   ![Boxplot - Students Matriculated](graphs/boxplot_matric.png)
+   ![Boxplot - Students Matriculated](Graphs/boxplot_matric.png)
 
 4. Boxplot - Association between students participation and the avarege score:
 
-   ![Boxplot - Student Participation](graphs/boxplot_part.png)
+   ![Boxplot - Student Participation](Graphs/boxplot_part.png)
 
 5. Boxplot - Association between region of the school and the avarege score:
 
    1.0 = Sudeste ; 2.0 =; 3.0=; 4.0=; 5.0=
 
-   ![Boxplot - School Region](graphs/boxplot_regia_media.png)
+   ![Boxplot - School Region](Graphs/boxplot_regia_media.png)
 
 6. Boxplot - Association between the state location of the scool and the avarege score:
 
-   ![Boxplot - School State](graphs/boxplot_uf_media.png)
+   ![Boxplot - School State](Graphs/boxplot_uf_media.png)
 
 7. Heatmap - Association between the region and the socioeconomical level of the school:
 
-   ![Heatmap - Region Socioeconomical](graphs/heatmap_regiao_socio.png)
+   ![Heatmap - Region Socioeconomical](Graphs/heatmap_regiao_socio.png)
 
 8. Boxplot - Association between school localization(Interior or Capital) and avarege score:
 
-   ![Boxplot - School Localization](graphs/boxplot_loc.png)
+   ![Boxplot - School Localization](Graphs/boxplot_loc.png)
 
 9. Boxplot - Association between the type of school (public or private) and the avarege score:
 
-   ![Boxplot - School Type](graphs/boxplot_tipo.png)
+   ![Boxplot - School Type](Graphs/boxplot_tipo.png)
