@@ -32,23 +32,43 @@ def hipotese_1_reprovacao():
     teste qui-quadrado para verificar a independência entre as variáveis.
     """
     try:
-        # Filtrar as categorias válidas
         categorias_validas = ['A', 'B', 'C']
         df_filtrado = df_sea_na[df_sea_na['Respostas_Pais'].isin(categorias_validas) &
                                 df_sea_na['Taxa_Reprovacao'].isin(categorias_validas)]
 
-        # Criar uma tabela de contingência
         tabela_contingencia = pd.crosstab(df_filtrado['Respostas_Pais'], df_filtrado['Taxa_Reprovacao'])
         print("Tabela de Contingência:\n", tabela_contingencia)
 
-        # Visualizar a tabela de contingência com um heatmap
-        plt.figure()
-        sns.heatmap(tabela_contingencia, annot=True, cmap="Blues", cbar=True)
-        plt.title("Heatmap - Associação entre Respostas dos Pais e Taxa de Reprovação")
-        plt.xlabel("Taxa de Reprovação")
-        plt.ylabel("Respostas dos Pais")
+        plt.figure(figsize=(12, 8))
+        sns.heatmap(tabela_contingencia, annot=True, fmt="d", cmap="Blues", cbar=True)
+        plt.title("Heatmap - Association Between Parental Encouragement to Study and Failure Rates", 
+                  loc="center",
+                  pad=20,
+                  fontweight="bold"
+        )
 
-        # Teste qui-quadrado para verificar independência entre as variáveis
+        # Ajustar margens para espaço suficiente nos eixos
+        plt.subplots_adjust(left=0.3, right=0.9, top=0.85, bottom=0.15)
+
+        # Títulos dos eixos em negrito
+        plt.xlabel("Have you already repeated a year?", fontweight="bold")
+        plt.ylabel("How often do your parents or guardians \nusually encourage you to study?", 
+                   fontweight="bold", 
+                   labelpad=20)
+
+        # Rótulos do eixo X
+        plt.xticks(
+            ticks=np.arange(len(tabela_contingencia.columns)) + 0.5,
+            labels=["Never", "Just once", "More than once"]
+        )
+
+        # Rótulos do eixo Y (copiando formatação do eixo X)
+        plt.yticks(
+            ticks=np.arange(len(tabela_contingencia.index)) + 0.5,
+            labels=["Never or\nalmost never", "Sometimes", "Always or\nalmost always"],
+            rotation=0  # Deixa o texto do eixo Y alinhado horizontalmente como no eixo X
+        )
+
         chi2, p, dof, expected = chi2_contingency(tabela_contingencia)
         print(f"Estatística qui-quadrado: {chi2}")
         print(f"Valor-p: {p}")
@@ -66,30 +86,56 @@ def hipotese_1_reprovacao():
 
 def hipotese_1_abandono():
     """
-    Explora a relação entre as respostas dos pais (qualitativa) e a taxa de abandono (qualitativa).
+    Explora a associação entre 'Respostas_Pais' e 'Taxa_Abandono' (variáveis qualitativas).
 
-    A função filtra as respostas válidas ('A', 'B', 'C'), exibe a contagem dessas categorias e gera um heatmap
-    para visualizar a relação entre essas categorias e a taxa de abandono.
+    A função cria uma tabela de contingência, visualiza a relação com um heatmap e calcula o
+    teste qui-quadrado para verificar a independência entre as variáveis.
     """
     try:
-        # Filtrando valores inválidos da coluna 'Respostas_Pais' e 'Taxa_Abandono'
         categorias_validas = ['A', 'B', 'C']
-        df_filtrado = df_sea_na[df_sea_na['Respostas_Pais'].isin(categorias_validas) & 
+        df_filtrado = df_sea_na[df_sea_na['Respostas_Pais'].isin(categorias_validas) &
                                 df_sea_na['Taxa_Abandono'].isin(categorias_validas)]
 
-        # Exibe a contagem de cada categoria
-        print(df_filtrado["Respostas_Pais"].value_counts())
-
-        # Criar a tabela de contingência
         tabela_contingencia = pd.crosstab(df_filtrado['Respostas_Pais'], df_filtrado['Taxa_Abandono'])
         print("Tabela de Contingência:\n", tabela_contingencia)
 
-        # Visualizar a tabela de contingência com um heatmap
-        plt.figure()
-        sns.heatmap(tabela_contingencia, annot=True, cmap="Blues", cbar=True)
-        plt.title("Heatmap - Associação entre Respostas dos Pais e Taxa de Abandono")
-        plt.xlabel("Taxa de Abandono")
-        plt.ylabel("Respostas dos Pais")
+        plt.figure(figsize=(12, 8))
+        sns.heatmap(tabela_contingencia, annot=True, fmt="d", cmap="Blues", cbar=True)
+        plt.title("Heatmap - Association Between Parental Encouragement to Study and Dropout Rates", 
+                  loc="center",
+                  pad=20,
+                  fontweight="bold"
+        )
+
+        # Ajustar margens para espaço suficiente nos eixos
+        plt.subplots_adjust(left=0.3, right=0.9, top=0.85, bottom=0.15)
+
+        # Títulos dos eixos em negrito
+        plt.xlabel("Have you ever dropped out of school and stopped attending until the end of the school year?", fontweight="bold")
+        plt.ylabel("How often do your parents or guardians \nusually encourage you to study?", 
+                   fontweight="bold", 
+                   labelpad=20)
+
+        # Rótulos do eixo X
+        plt.xticks(
+            ticks=np.arange(len(tabela_contingencia.columns)) + 0.5,
+            labels=["Never", "Just once", "More than once"]
+        )
+
+        # Rótulos do eixo Y (copiando formatação do eixo X)
+        plt.yticks(
+            ticks=np.arange(len(tabela_contingencia.index)) + 0.5,
+            labels=["Never or\nalmost never", "Sometimes", "Always or\nalmost always"],
+            rotation=0  # Deixa o texto do eixo Y alinhado horizontalmente como no eixo X
+        )
+
+        chi2, p, dof, expected = chi2_contingency(tabela_contingencia)
+        print(f"Estatística qui-quadrado: {chi2}")
+        print(f"Valor-p: {p}")
+        if p < 0.05:
+            print("As variáveis estão associadas (rejeita-se a hipótese nula de independência).")
+        else:
+            print("As variáveis não estão associadas (não se rejeita a hipótese nula).")
 
         plt.savefig("./Graphs/heatmap_abandono")
 
@@ -99,3 +145,6 @@ def hipotese_1_abandono():
         print(f"Erro inesperado: {e}")
 
 
+if __name__ == "__main__":
+    hipotese_1_reprovacao()
+    hipotese_1_abandono()
