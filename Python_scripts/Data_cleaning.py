@@ -29,25 +29,43 @@ def create_dataframes(df2, df3):
         Tupla de DataFrames contendo variáveis como 'Respostas_Pais', 'Tipo_Escola', 'Taxa_Reprovacao', etc.
     """
     try:
-        resposta_pais = pd.DataFrame(df3["TX_RESP_Q09c"], columns=["Respostas_Pais"])
-        tipo_escola_df = pd.DataFrame(df3["TX_RESP_Q17"], columns=["Tipo_Escola"])
-        taxa_reprovacao = pd.DataFrame(df3["TX_RESP_Q18"], columns=["Taxa_Reprovacao"])
-        taxa_abondono = pd.DataFrame(df3["TX_RESP_Q19"], columns=["Taxa_Abandono"])
-        nivel_socioeco = pd.DataFrame(df2["NIVEL_SOCIO_ECONOMICO"], columns=["Nivel_Socioeconomico"])
-        id_regiao = pd.DataFrame(df2["ID_REGIAO"], columns=["Regiao"])
-        med_lp = pd.DataFrame(df2["MEDIA_EM_LP"], columns=["Media_LP"])
-        med_mt = pd.DataFrame(df2["MEDIA_EM_MT"], columns=["Media_MT"])
+        id_regiao_mapping = {
+            1: "N", 2: "NE", 3: "SE", 4: "S", 5: "CO"}
+        uf_mapping = {
+            12: 'AC', 27: 'AL', 13: 'AM', 16: 'AP', 29: 'BA', 23: 'CE', 53: 'DF',
+            32: 'ES', 52: 'GO', 21: 'MA', 31: 'MG', 50: 'MS', 51: 'MT', 15: 'PA',
+            25: 'PB', 26: 'PE', 22: 'PI', 41: 'PR', 33: 'RJ', 24: 'RN', 43: 'RS',
+            11: 'RO', 14: 'RR', 42: 'SC', 35: 'SP', 28: 'SE', 17: 'TO'
+        }
+
+        tipo_regiao = {
+            1: "Urbana", 2: "Rural"
+        }
+
+
+
+        resposta_pais = df3[["TX_RESP_Q09c"]].rename(columns={"TX_RESP_Q09c": "Respostas_Pais"})
+        tipo_escola_df = df3[["TX_RESP_Q17"]].rename(columns={"TX_RESP_Q17": "Tipo_Escola"})
+        taxa_reprovacao = df3[["TX_RESP_Q18"]].rename(columns={"TX_RESP_Q18": "Taxa_Reprovacao"})
+        taxa_abondono = df3[["TX_RESP_Q19"]].rename(columns={"TX_RESP_Q19": "Taxa_Abandono"})
+        nivel_socioeco = df2[["NIVEL_SOCIO_ECONOMICO"]].rename(columns={"NIVEL_SOCIO_ECONOMICO": "Nivel_Socioeconomico"})
+        id_regiao = df2[["ID_REGIAO"]].rename(columns={"ID_REGIAO": "Regiao"})
+        id_regiao["Regiao"] = id_regiao["Regiao"].map(id_regiao_mapping)
+        med_lp = df2[["MEDIA_EM_LP"]].rename(columns={"MEDIA_EM_LP": "Media_LP"})
+        med_mt = df2[["MEDIA_EM_MT"]].rename(columns={"MEDIA_EM_MT": "Media_MT"})
         med_geral = pd.DataFrame((df2["MEDIA_EM_LP"] + df2["MEDIA_EM_MT"]) / 2, columns=["Media"])
-        num_matriculados = pd.DataFrame(df2["NU_MATRICULADOS_CENSO_EMT"], columns=["Num_Matriculados"])
-        taxa_participacao = pd.DataFrame(df2["TAXA_PARTICIPACAO_EM"], columns=["Taxa_Participacao"])
-        id_localizacao = pd.DataFrame(df2["ID_LOCALIZACAO"], columns=["Localizacao"])
-        id_uf = pd.DataFrame(df2["ID_UF"], columns=["UF"])
+        num_matriculados = df2[["NU_MATRICULADOS_CENSO_EMT"]].rename(columns={"NU_MATRICULADOS_CENSO_EMT": "Num_Matriculados"})
+        taxa_participacao = df2[["TAXA_PARTICIPACAO_EM"]].rename(columns={"TAXA_PARTICIPACAO_EM": "Taxa_Participacao"})
+        id_localizacao = df2[["ID_LOCALIZACAO"]].rename(columns={"ID_LOCALIZACAO": "Localizacao"})
+        id_localizacao["Localizacao"] = id_localizacao["Localizacao"].map(tipo_regiao)
+        id_uf = df2[["ID_UF"]].rename(columns={"ID_UF": "UF"})
+        id_uf["UF"] = id_uf["UF"].map(uf_mapping)
 
         return (resposta_pais, tipo_escola_df, nivel_socioeco, id_regiao, taxa_reprovacao, med_lp, med_mt, 
                 med_geral, num_matriculados, taxa_participacao, taxa_abondono, id_localizacao, id_uf)
     except KeyError as e:
         print(f"Erro: Coluna {e} não encontrada nos DataFrames.")
-        return [pd.DataFrame()] * 13  # Retorna DataFrames vazios em caso de erro
+        return [pd.DataFrame()] * 13
 
 def set_indices(resposta_pais, tipo_escola_df, nivel_socioeco, id_regiao, taxa_reprovacao, med_lp, med_mt, med_geral, num_matriculados, taxa_participacao, taxa_abondono, id_localizacao, id_uf):
     """

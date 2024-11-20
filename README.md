@@ -84,7 +84,7 @@ This will generate the following visualizations:
 - 4 = Sul
 - 5 = Centro-Oeste
 
-   ![Boxplot - School Region](Graphs/boxplot_regia_media.png)
+   ![Boxplot - School Region](Graphs/violinplot_regiao_media.png)
 
 6. Boxplot - Association between the state location of the scool and the avarege score:
 
@@ -119,7 +119,7 @@ This will generate the following visualizations:
 - 53 = DF (Distrito Federal)
 
 
-   ![Boxplot - School State](Graphs/boxplot_uf_media.png)
+   ![Boxplot - School State](Graphs/violinplot_uf_media.png)
 
 7. Heatmap - Association between the region and the socioeconomical level of the school:
 
@@ -130,7 +130,7 @@ This will generate the following visualizations:
    - 1 = Urbana
    - 2 = Rural
 
-   ![Boxplot - School Localization](Graphs/boxplot_loc.png)
+   ![Boxplot - School Localization](Graphs/violinplot_loc.png)
 
 9. Boxplot - Association between the type of school (public or private) and the avarege score:
 
